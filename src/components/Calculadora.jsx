@@ -14,13 +14,9 @@ export default function Calculadora() {
 
   const [input, setInput] = useState("");
 
-  const handlerChange = (e) => {
-    let value = e.target.value;
-    setInput(value);
-  };
-
   const handlerClick = (e) => {
     e.preventDefault();
+    setInput("")
   };
 
   return (
@@ -29,9 +25,10 @@ export default function Calculadora() {
         <input
           type="number"
           placeholder="Ingrese el monto..."
-          onChange={handlerChange}
+          value={input}
+          onChange={(e)=>setInput(e.target.value)}
         />
-        <button onClick={handlerClick}>Calcular</button>
+        <button onClick={handlerClick}>Listo</button>
       </div>
       <div className={style.table}>
         <table className="table">
@@ -43,10 +40,10 @@ export default function Calculadora() {
             </tr>
           </thead>
           <tbody>
-            {cotizacion.map(({ nombre, venta }) => {
+            {cotizacion.map(({ nombre, venta }, index) => {
               const total = input ? Number(input / venta) : venta;
               return (
-                <tr>
+                <tr key={index}>
                   <td>{nombre}</td>
                   <td>{Number(venta).toLocaleString('es-AR',{style: 'currency', currency: 'USD'})}</td>
                   <th scope="row">{Number(total).toLocaleString('es-AR',{style: 'currency', currency: 'ARS'})}</th>
