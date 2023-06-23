@@ -41,7 +41,7 @@ export default function Calculadora() {
           </thead>
           <tbody>
             {cotizacion.map(({ nombre, venta }, index) => {
-              const total = input ? Number(input / venta) : venta;
+              const total = input ? Number(input / venta) : 0;
               return (
                 <tr key={index}>
                   <td>{nombre}</td>
