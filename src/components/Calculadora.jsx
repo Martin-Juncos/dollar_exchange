@@ -45,8 +45,8 @@ export default function Calculadora() {
               return (
                 <tr key={index}>
                   <td>{nombre}</td>
-                  <td>{Number(venta).toLocaleString('es-AR',{style: 'currency', currency: 'USD'})}</td>
-                  <th scope="row">{Number(total).toLocaleString('es-AR',{style: 'currency', currency: 'ARS'})}</th>
+                  <td>{Number(venta).toLocaleString('es-AR',{style: 'currency', currency: 'ARS'})}</td>
+                  <th scope="row">{Number(total).toLocaleString('es-AR',{style: 'currency', currency: 'USD'})}</th>
                 </tr>
               );
             })}
